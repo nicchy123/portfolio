@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero/hero";
 import Navbar from "@/components/Navbar/Navbar";
 import Contact from "@/components/contact/contact";
+import Footer from "@/components/footer/footer";
 import Projects from "@/components/projects/projets";
 import CoolPage from "@/components/scrollToTop/coolPage";
 import Skills from "@/components/skills/skills";
@@ -15,5 +16,6 @@ export default function Home() {
       <Testimonial/>
       <CoolPage/>
       <Contact/>
+      <Footer/>
          </div>;
 }

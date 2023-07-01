@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {FaFacebook, FaLinkedin, FaInstagram, FaGithub} from 'react-icons/fa'
 const Hero = () => {
     return (
-        <div className="w-full  lg:py-20 py-10 ">
+        <div id='home' className="w-full  lg:py-20 md:py-10 py-6">
            <div className="container  flex lg:flex-row flex-col-reverse items-center gap-5 ">
             <div className="lg:w-1/2">
                 <p className="text-lg">HI. I' am</p>

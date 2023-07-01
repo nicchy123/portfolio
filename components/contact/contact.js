@@ -12,7 +12,7 @@ const Contact = () => {
     <h1 className="text-center text-4xl font-bold">Contact Me</h1>
       <p className="text-center mt-2 text-[#858585] text-lg">Get in touch</p>
    <div className='flex lg:flex-row flex-col-reverse justify-center items-center gap-10'>
-   <div className='flex flex-col items-center gap-6 my-10'>
+   <div className='lg:flex flex-col items-center gap-6 my-10  sm:hidden'>
                    <Link className='flex items-center gap-4' href={'https://www.facebook.com/nic.nasirchy.3'}>
                    <Image src={'/images/facebook.png'} width={40} height={100} alt='photo'/>
                    <p>Nasir Chy</p>
@@ -56,7 +56,7 @@ const Contact = () => {
             <textarea className='w-full rounded-md bg-white mt-1 h-[180px] border border-black text-black p-1' name="" id="" cols="30" rows="10"></textarea>
         </div>
         <div className="form-control mt-6">
-          <button className="btn  text-white bg-[#6597FF] w-1/3">Send Now</button>
+          <button className="btn  text-white bg-[#6597FF] lg:w-1/3 w-1/2">Send Now</button>
         </div>
       </div>
     </div>
