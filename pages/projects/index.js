@@ -1,26 +1,26 @@
-import Navbar from '@/components/Navbar/Navbar';
-import Footer from '@/components/footer/footer';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/footer/footer";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  const [dark, setDark] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
+
+  const [isDark, setDark] = useState(true)
+
 
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
       .then((res) => res.json())
       .then((data) => {
-     
         setProjects(data);
         setFilteredData(data);
       });
-      const isDark =localStorage.getItem('dark-mode')
-      setDark(isDark)
+  
   }, []);
   const categories = [
     { title: "All" },
@@ -45,9 +45,9 @@ const Projects = () => {
     setFilteredData(result);
   };
 
-    return (
-      <div>
-        <Navbar/>
+  return (
+    <div>
+      <Navbar />
       <div className={`container bg-[#FFFFFF0F] py-10`}>
         <h1 className="text-center text-4xl font-bold">Projects</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Recent Works</p>
@@ -61,9 +61,14 @@ const Projects = () => {
                   setSelectedCategory(e.target.innerText);
                   handleFilter(e);
                 }}
+                style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
                 className={`py-2 px-5 ${
-                  selectedCategory === category.title && "bg-[#297BB2]"
-                }  bg-[#09152E] rounded-md hover:bg-[#297BB2]`}
+                  selectedCategory === category.title && "bg-[#297BB2] "
+                }  ${
+                  isDark
+                    ? "bg-[#09152E]"
+                    : "bg-white hover:text-white  text-black"
+                } rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>
@@ -74,8 +79,8 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              className={` mx-auto py-10 px-6  text-white 
-               bg-[#151A25]
+              className={` mx-auto py-10 px-6 box-new
+                ${isDark ? "bg-[#151A25]" : "bg-white  shadow-2xl"}
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">
@@ -121,22 +126,23 @@ const Projects = () => {
             </div>
           ))}
         </div>
-     
       </div>
-      <Footer/>
+      <Footer />
     </div>
-    );
+  );
 };
 
 export default Projects;
 
-export async function getServerSideProps(){
-    const data = await fetch("https://portfolio-server-phi-murex.vercel.app/projects")
-    const result = await data.json()
-   
-    return{
-      props:{
-        projects: result
-      }
-    }
-  }
+export async function getServerSideProps() {
+  const data = await fetch(
+    "https://portfolio-server-phi-murex.vercel.app/projects"
+  );
+  const result = await data.json();
+
+  return {
+    props: {
+      projects: result,
+    },
+  };
+}

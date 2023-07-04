@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/router";
 const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
-  // const isDark  = localStorage.getItem("dark-mode");
-  // console.log(isDark)
+
+  const [isDark, setDark] = useState(true)
 
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
@@ -20,8 +20,6 @@ const Projects = () => {
       });
   }, []);
 
-
- 
   useEffect(() => {
     if (selectedCategory === "All") {
       setFilteredData(projects.slice(0, 3));
@@ -53,6 +51,7 @@ const Projects = () => {
   if (loading) {
     return <div>Loading</div>;
   }
+
   return (
     <div id="projects" className="py-20">
       <div className={`container bg-[#FFFFFF0F] py-10`}>
@@ -68,9 +67,10 @@ const Projects = () => {
                   setSelectedCategory(e.target.innerText);
                   handleFilter(e);
                 }}
+                style={{boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px"}}
                 className={`py-2 px-5 ${
-                  selectedCategory === category.title && "bg-[#297BB2]"
-                }  bg-[#09152E] rounded-md hover:bg-[#297BB2]`}
+                  selectedCategory === category.title && "bg-[#297BB2] "
+                }  ${isDark? "bg-[#09152E]": "bg-white hover:text-white  text-black"} rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>
@@ -81,9 +81,10 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              className={`text-white mx-auto py-10 px-6
-                bg-[#151A25]
-              } rounded-xl w-full`}
+              
+              className={` mx-auto py-10 px-6 box-new
+                ${isDark ? "bg-[#151A25]": "bg-white  shadow-2xl"}
+               rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">
                 {project.name}

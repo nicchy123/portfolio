@@ -2,7 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
+import {BiSolidDownload} from 'react-icons/bi'
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 const Hero = () => {
+const [isDark, setDark] = useState(false)
+
+
+
   const downLoadCv = (url) => {
     const fileName = url.split("/").pop();
     const aTag = document.createElement("a");
@@ -25,7 +32,7 @@ const Hero = () => {
               options={{
                 strings: [
                   "Front End Developer",
-                  "Junior Web Developer",
+                  "React js Developer",
                   "Mern Stack Developer",
                 ],
                 autoStart: true,
@@ -45,7 +52,8 @@ const Hero = () => {
               }
               className="btn btn-outline"
             >
-              Download CV
+              <BiSolidDownload className={`${isDark === "true"? "text-white":""} w-5 h-5`}/>
+             Resume
             </button>
           </div>
           <div className="flex items-center gap-6 my-10">
