@@ -1,17 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { CgClose  } from "react-icons/cg";
 import { GiHamburgerMenu  } from "react-icons/gi";
 
 const Navbar = () => {
+  const [dark, setDark] = useState(false)
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(false);
-
-  function toggleDarkMode() {
-    setDark(!dark);
-    localStorage.setItem("dark-mode", dark);
-  }
 
   useEffect(() => {
     const darkMode = JSON.parse(localStorage.getItem("dark-mode"));
@@ -22,6 +17,13 @@ const Navbar = () => {
       document.body.classList.remove("dark-mode");
     }
   }, [dark]);
+
+  function toggleDarkMode() {
+    setDark(!dark);
+    localStorage.setItem("dark-mode", dark);
+  }
+
+
   return (
     <div
       className={`${
@@ -44,12 +46,14 @@ const Navbar = () => {
         </div>
         <div className="flex justify-start items-center lg:gap-5 gap-2">
           <div className="avatar">
-            <div className="rounded-full">
+            <div className="rounded-full w-10 h-10">
               <Image
+           
                 width={30}
-                height={20}
+                height={30}
                 alt={"photo"}
-                src="/images/nasir12.png"
+                src="/images/nasir1.png"
+                className="w-full"
               />
             </div>
           </div>
@@ -61,15 +65,15 @@ const Navbar = () => {
         <div className="flex justify-end gap-10 items-center">
           <div>
             <ul
-              className={`z-[999] text-white lg:w-full w-[250px] lg:p-0 py-10 rounded bg-[#151A25] text-lg flex lg:flex-row flex-col text-center items-center lg:gap-10 gap-6 md:static absolute ${open?"top-16 left-0 duration-500" :"left-[-900px]"}`}
+              className={`${dark? "bg-white":"bg-[#151A25]"} z-[999] lg:w-full w-[250px] lg:p-0 py-10 rounded  text-lg flex lg:flex-row flex-col text-center items-center lg:gap-10 gap-6 md:static absolute ${open?"top-16 left-0 duration-500" :"left-[-900px]"}`}
             >
-              <Link className="" href={"#home"}>
+              <Link onClick={()=>setOpen(false)} className="" href={"/"}>
                 Home
               </Link>
-              <Link href={"#about"}>About Me</Link>
-              <Link href={"#projects"}>Projects</Link>
-              <Link href={"#testimonial"}>Testimonial</Link>
-              <Link href={"#contact"}>Contact Me</Link>
+              <Link onClick={()=>setOpen(false)} href={"/#about"}>About Me</Link>
+              <Link onClick={()=>setOpen(false)} href={"/projects"}>Projects</Link>
+              <Link onClick={()=>setOpen(false)} href={"/#testimonial"}>Testimonial</Link>
+              <Link onClick={()=>setOpen(false)} href={"/#contact"}>Contact Me</Link>
             </ul>
           </div>
           <div>

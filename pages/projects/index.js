@@ -1,33 +1,27 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import Navbar from '@/components/Navbar/Navbar';
+import Footer from '@/components/footer/footer';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
 
 const Projects = () => {
-  const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
+  const [dark, setDark] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
-  // const isDark  = localStorage.getItem("dark-mode");
-  // console.log(isDark)
 
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
       .then((res) => res.json())
       .then((data) => {
-        setLoading(false);
+     
         setProjects(data);
         setFilteredData(data);
       });
+      const isDark =localStorage.getItem('dark-mode')
+      setDark(isDark)
   }, []);
-
-
- 
-  useEffect(() => {
-    if (selectedCategory === "All") {
-      setFilteredData(projects.slice(0, 3));
-      return;
-    }
-  }, [projects]);
   const categories = [
     { title: "All" },
     { title: "Fullstack" },
@@ -37,7 +31,7 @@ const Projects = () => {
 
   const handleFilter = (e) => {
     if (e.target.innerText === "All") {
-      setFilteredData(projects.slice(0, 3));
+      setFilteredData(projects);
       return;
     }
     const result = projects.filter(
@@ -45,16 +39,15 @@ const Projects = () => {
         project.type.toLowerCase() === e.target.innerText.toLowerCase()
     );
     if (result.length > 3) {
-      setFilteredData(result.slice(0, 3));
+      setFilteredData(result);
       return;
     }
     setFilteredData(result);
   };
-  if (loading) {
-    return <div>Loading</div>;
-  }
-  return (
-    <div id="projects" className="py-20">
+
+    return (
+      <div>
+        <Navbar/>
       <div className={`container bg-[#FFFFFF0F] py-10`}>
         <h1 className="text-center text-4xl font-bold">Projects</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Recent Works</p>
@@ -81,9 +74,9 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              className={`text-white mx-auto py-10 px-6
-                bg-[#151A25]
-              } rounded-xl w-full`}
+              className={` mx-auto py-10 px-6  text-white 
+               bg-[#151A25]
+               rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">
                 {project.name}
@@ -128,14 +121,22 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center my-8">
-          <Link href={"/projects"}>
-            <button className="btn btn-outline px-16 ">See All</button>
-          </Link>
-        </div>
+     
       </div>
+      <Footer/>
     </div>
-  );
+    );
 };
 
 export default Projects;
+
+export async function getServerSideProps(){
+    const data = await fetch("https://portfolio-server-phi-murex.vercel.app/projects")
+    const result = await data.json()
+   
+    return{
+      props:{
+        projects: result
+      }
+    }
+  }

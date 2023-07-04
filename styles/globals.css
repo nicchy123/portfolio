@@ -43,34 +43,8 @@ body {
   margin:auto;
   animation: circle 6s linear infinite;
 }
-.circle1{
-  width:50px;
-  height:50px;
-  background:cyan;
-  border-radius:50%;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  overflow:hidden;
-  margin:auto;
-  animation: circle 6s linear infinite;
-}
-.circle2{
-  width:50px;
-  height:50px;
-  background:cyan;
-  border-radius:50%;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  overflow:hidden;
-  margin:auto;
-  animation: circle 6s linear infinite;
-}
+
+
 
 @keyframes circle{
   0%{
@@ -86,10 +60,11 @@ body {
   }
 }
 
-
-
 @layer components{
   .container{
     @apply max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-20 
   }
 }
+
+
+

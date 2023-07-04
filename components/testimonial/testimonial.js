@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaAccusoft } from "react-icons/fa";
 import Image from "next/image";
 const Testimonial = () => {
   const clients = [
@@ -10,62 +9,61 @@ const Testimonial = () => {
       time: "Worked 1 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client1.avif'}/>,
+      imgage: <Image className="rounded-full" width={50} height={50}alt="photo"  src={'/images/client1.avif'}/>,
     },
     {
       name: "Najatul islam chy",
       time: "Worked 2 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage:<Image className="rounded-full" width={50} height={50} src={'/images/client2.avif'}/>,
+      imgage:<Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client2.avif'}/>,
     },
     {
       name: "Nasibul islam chy",
       time: "Worked 3 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={30} height={50} src={'/images/client3.avif'}/>,
+      imgage: <Image className="rounded-full" width={30}alt="photo"  height={50} src={'/images/client3.avif'}/>,
     },
     {
       name: "Naderul islam chy",
       time: "Worked 4 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client4.avif'}/>,
+      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client4.avif'}/>,
     },
     {
       name: "Najibul islam chy",
       time: "Worked 5 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client5.jpeg'}/>,
+      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client5.jpeg'}/>,
     },
     {
       name: "Nakibul islam chy",
       time: "Worked 6 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client7.avif'}/>,
+      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client7.avif'}/>,
     },
     {
       name: "Najatul islam chy",
       time: "Worked 7 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client8.jpg'}/>,
+      imgage: <Image className="rounded-full" alt="photo" width={50} height={50} src={'/images/client8.jpg'}/>,
     },
     {
       name: "MOksud islam chy",
       time: "Worked 8 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50} src={'/images/client9.jpg'}/>,
+      imgage: <Image className="rounded-full" alt="photo" width={50} height={50} src={'/images/client9.jpg'}/>,
     },
   ];
   const settings = {
-    
-    focusOnSelect: true,
     infinite: true,
+    focusOnSelect: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -98,24 +96,24 @@ const Testimonial = () => {
     ]
   };
   return (
-    <div id="testimonial" className="container px-4 py-32">
+    <div id="testimonial" className="container px-4 py-20">
       <h1 className="text-center text-4xl font-bold">Testimonial</h1>
       <p className="text-center mt-2 text-[#858585] text-lg">My Clients Say</p>
       <div>
         <div className="mx-auto px-4">
           <Slider {...settings}>
-            {clients.map((c) => (
-              <div className="mx-auto m-4 text-[#595959]
+            {clients.map((client,i) => (
+              <div key={i} className="mx-auto m-4 text-[#595959]
               ">
-                <div className="m-4  bg-white p-5 rounded-md">
+                <div className="m-4  bg-white p-10 rounded-md shadow-lg">
                   <div className="flex justify-start items-center gap-4">
-                    <div>{c.imgage}</div>
+                    <div>{client.imgage}</div>
                     <div>
-                      <p className="text-black">{c.name}</p>
-                      <p>{c.time}</p>
+                      <p className="text-black">{client.name}</p>
+                      <p>{client.time}</p>
                     </div>
                   </div>
-                  <p className="bg-white p-5 rounded-md">{c.comment}</p>
+                  <p className="bg-white p-5 rounded-md">{client.comment}</p>
                 </div>
               </div>
             ))}

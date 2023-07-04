@@ -5,6 +5,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ['assets-global.website-files.com'],
+    domains: ['assets-global.website-files.com',"i.ibb.co","i.ibb.co"],
   },
   nextConfig}
