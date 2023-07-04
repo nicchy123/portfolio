@@ -9,6 +9,7 @@ import Testimonial from "@/components/testimonial/testimonial";
 import { Toaster } from "react-hot-toast";
 
 export default function Home() {
+
   return (
     <div>
       <Navbar />
