@@ -10,7 +10,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
 
-  const [isDark, setDark] = useState(true)
+  const [isDark, setDark] = useState(false)
 
 
   useEffect(() => {
@@ -67,8 +67,8 @@ const Projects = () => {
                 }  ${
                   isDark
                     ? "bg-[#09152E]"
-                    : "bg-white hover:text-white  text-black"
-                } rounded-md hover:bg-[#297BB2]`}
+                    : "bg-white hover:text-white  "
+                 } text-black rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>

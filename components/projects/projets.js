@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
+  const [dark, setDark] = useState(true);
 
-  const [isDark, setDark] = useState(true)
+
 
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
@@ -49,7 +49,9 @@ const Projects = () => {
     setFilteredData(result);
   };
   if (loading) {
-    return <div>Loading</div>;
+    return <div className="min-h-[600px] flex justify-center items-center">
+      <span className="loading loading-bars loading-lg"></span>
+    </div>;
   }
 
   return (
@@ -67,10 +69,14 @@ const Projects = () => {
                   setSelectedCategory(e.target.innerText);
                   handleFilter(e);
                 }}
-                style={{boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px"}}
+                style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
                 className={`py-2 px-5 ${
                   selectedCategory === category.title && "bg-[#297BB2] "
-                }  ${isDark? "bg-[#09152E]": "bg-white hover:text-white  text-black"} rounded-md hover:bg-[#297BB2]`}
+                }  ${
+                  dark
+                    ? "bg-[#09152E]"
+                    : "bg-white hover:text-white  text-black"
+                } rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>
@@ -81,9 +87,7 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              
-              className={` mx-auto py-10 px-6 box-new
-                ${isDark ? "bg-[#151A25]": "bg-white  shadow-2xl"}
+              className={` mx-auto py-10 px-6 bg-white  text-black shadow-2xl
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">

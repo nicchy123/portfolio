@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
 const Hero = () => {
 const [isDark, setDark] = useState(false)
 
-
-
   const downLoadCv = (url) => {
     const fileName = url.split("/").pop();
     const aTag = document.createElement("a");
@@ -20,7 +18,7 @@ const [isDark, setDark] = useState(false)
     aTag.remove();
   };
   return (
-    <div id="home" className="w-full  py-20">
+    <div id="home" className="w-full  lg:py-20">
       <div className="container  flex lg:flex-row flex-col-reverse items-center gap-5 ">
         <div className="lg:w-1/2">
           <p className="text-lg">HI. I' am</p>
@@ -86,13 +84,13 @@ const [isDark, setDark] = useState(false)
             </Link>
           </div>
         </div>
-        <div className="w-1/2 ">
-          <div className="  flex justify-center items-center">
+        <div className="w-1/2">
+          <div className="flex justify-center items-center">
             <Image
               className="rounded-full mx-auto "
               alt="photo"
               width={350}
-              height={200}
+              height={300}
               src="/images/nasir12.png"
             ></Image>
           </div>

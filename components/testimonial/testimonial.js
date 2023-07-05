@@ -9,56 +9,56 @@ const Testimonial = () => {
       time: "Worked 1 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50} height={50}alt="photo"  src={'/images/client1.avif'}/>,
+      image: '/images/client1.avif'
     },
     {
       name: "Najatul islam chy",
       time: "Worked 2 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage:<Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client2.avif'}/>,
+      image:'/images/client2.avif'
     },
     {
       name: "Nasibul islam chy",
       time: "Worked 3 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={30}alt="photo"  height={50} src={'/images/client3.avif'}/>,
+      image: '/images/client3.avif'
     },
     {
       name: "Naderul islam chy",
       time: "Worked 4 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client4.avif'}/>,
+      image: '/images/client4.avif'
     },
     {
       name: "Najibul islam chy",
       time: "Worked 5 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client5.jpeg'}/>,
+      image: '/images/client5.jpeg'
     },
     {
       name: "Nakibul islam chy",
       time: "Worked 6 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" width={50}alt="photo"  height={50} src={'/images/client7.avif'}/>,
+      image: '/images/client7.avif'
     },
     {
       name: "Najatul islam chy",
       time: "Worked 7 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" alt="photo" width={50} height={50} src={'/images/client8.jpg'}/>,
+      image: '/images/client8.jpg'
     },
     {
       name: "MOksud islam chy",
       time: "Worked 8 month ago",
       comment:
         "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
-      imgage: <Image className="rounded-full" alt="photo" width={50} height={50} src={'/images/client9.jpg'}/>,
+      image: '/images/client9.jpg',
     },
   ];
   const settings = {
@@ -100,14 +100,17 @@ const Testimonial = () => {
       <h1 className="text-center text-4xl font-bold">Testimonial</h1>
       <p className="text-center mt-2 text-[#858585] text-lg">My Clients Say</p>
       <div>
-        <div className="mx-auto px-4">
+        <div className="mx-auto px-4 mt-8">
           <Slider {...settings}>
             {clients.map((client,i) => (
               <div key={i} className="mx-auto m-4 text-[#595959]
               ">
-                <div className="m-4  bg-white p-10 rounded-md shadow-lg">
+                <div className="m-4 w-96 h-72 bg-white p-10 rounded-md shadow-lg">
                   <div className="flex justify-start items-center gap-4">
-                    <div>{client.imgage}</div>
+                    <div>
+                    <Image className="rounded-full" alt="photo" width={50} height={50} src={client.image}/>
+                      
+                      </div>
                     <div>
                       <p className="text-black">{client.name}</p>
                       <p>{client.time}</p>

@@ -7,13 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      theme: {
-        extend: {
-         
-        },
+      backgroundImage:{
+        custom: "/images/bg.jpg"
+      }
       },
       
-    },
   },
   plugins: [require("daisyui")],
 };
