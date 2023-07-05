@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
+import Head from "next/head";
 const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
@@ -31,6 +32,7 @@ const Contact = () => {
   return (
     <div id="contact" className="container py-20">
       <div>
+      
         <h1 className="text-center text-4xl font-bold">Contact Me</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Get in touch</p>
         <div className="flex lg:flex-row flex-col-reverse justify-center items-center gap-10">

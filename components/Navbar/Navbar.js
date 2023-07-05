@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -36,7 +37,7 @@ const Navbar = () => {
     <>
       <Link
         className={` mx-4 hover:border-b-2 border-[#6597FF] text-center  ${
-          router.asPath === "/" ? "border-b-2 border-[#6597FF]" : ""
+          router.asPath === "/" ? "border-b-2  border-[#6597FF]" : ""
         }`}
         href={"/"}
       >
@@ -86,12 +87,16 @@ const Navbar = () => {
   );
   return (
     <>
+   
       {!loading && (
         <div
           className={`${
             dark ? "bg-[#151A25]" : "bg-white"
           } sticky top-0  z-[999] shadow-md`}
         >
+   <Head>
+<title>Home | Portfolio</title>
+   </Head>
           <div className={`navbar container h-16`}>
             <div className="navbar-start  ">
               <div className="dropdown">

@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import Head from "next/head";
 const Testimonial = () => {
   const clients = [
     {
@@ -97,6 +98,7 @@ const Testimonial = () => {
   };
   return (
     <div id="testimonial" className="container px-4 py-20">
+ 
       <h1 className="text-center text-4xl font-bold">Testimonial</h1>
       <p className="text-center mt-2 text-[#858585] text-lg">My Clients Say</p>
       <div>

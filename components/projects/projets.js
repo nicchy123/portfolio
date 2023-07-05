@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -56,6 +57,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className="py-20">
+      
       <div className={`container bg-[#FFFFFF0F] py-10`}>
         <h1 className="text-center text-4xl font-bold">Projects</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Recent Works</p>

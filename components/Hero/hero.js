@@ -5,6 +5,7 @@ import Typewriter from "typewriter-effect";
 import {BiSolidDownload} from 'react-icons/bi'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 const Hero = () => {
 const [isDark, setDark] = useState(false)
 
@@ -18,8 +19,12 @@ const [isDark, setDark] = useState(false)
     aTag.remove();
   };
   return (
-    <div id="home" className="w-full  lg:py-20">
+    <div className="w-full  lg:py-20">
+        <Head>
+        <title>Home | Portfolio</title>
+      </Head>
       <div className="container  flex lg:flex-row flex-col-reverse items-center gap-5 ">
+       
         <div className="lg:w-1/2">
           <p className="text-lg">HI. I' am</p>
           <h2 className="text-[#297BB2] lg:text-6xl text-3xl font-bold my-4">

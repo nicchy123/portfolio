@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/footer/footer";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,8 +11,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
 
-  const [isDark, setDark] = useState(false)
-
+  const [isDark, setDark] = useState(false);
 
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
@@ -20,7 +20,6 @@ const Projects = () => {
         setProjects(data);
         setFilteredData(data);
       });
-  
   }, []);
   const categories = [
     { title: "All" },
@@ -47,13 +46,17 @@ const Projects = () => {
 
   return (
     <div>
+     
       <Navbar />
+      <Head>
+        <title>Projects | Portfolio</title>
+      </Head>
       <div className={`container bg-[#FFFFFF0F] py-10`}>
         <h1 className="text-center text-4xl font-bold">Projects</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Recent Works</p>
 
         <div>
-          <ul className="flex flex-wrap justify-center items-center gap-5 my-8 lg:text-lg text-sm cursor-pointer text-white">
+        <ul className="flex flex-wrap justify-center items-center gap-5 my-8 lg:text-lg text-sm cursor-pointer text-white">
             {categories.map((category, i) => (
               <li
                 key={i}
@@ -64,11 +67,9 @@ const Projects = () => {
                 style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
                 className={`py-2 px-5 ${
                   selectedCategory === category.title && "bg-[#297BB2] "
-                }  ${
-                  isDark
-                    ? "bg-[#09152E]"
-                    : "bg-white hover:text-white  "
-                 } text-black rounded-md hover:bg-[#297BB2]`}
+                } bg-[#09152E]
+                  
+                rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>
@@ -80,7 +81,7 @@ const Projects = () => {
             <div
               key={i}
               className={` mx-auto py-10 px-6 box-new
-                ${isDark ? "bg-[#151A25]" : "bg-white  shadow-2xl"}
+                bg-white  shadow-2xl text-black
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">
