@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import { MdLocationPin } from 'react-icons/md';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FiPhoneCall } from 'react-icons/fi';
-import resume from '../../public/images/Nasir.Resume.pdf'
+
 const Footer = () => {
   const downLoadCv = (url) => {
     const fileName = url.split("/").pop();
@@ -71,7 +71,7 @@ const Footer = () => {
          </button>
           </Link>
          <button  onClick={() =>
-                downLoadCv(resume)
+                downLoadCv("/images/Nasir.Resume.pdf")
               } className="w-44 p-3 border rounded">Download Resume</button>
         </div>
       </footer>

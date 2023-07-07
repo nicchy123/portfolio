@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import {BiSolidDownload} from 'react-icons/bi'
-import resume from '../../public/images/Nasir.Resume.pdf'
 import { useEffect, useState } from "react";
 import Head from "next/head";
 const Hero = () => {
@@ -18,7 +17,7 @@ const downLoadCv = (url) => {
   aTag.remove();
 };
   return (
-    <div className="w-full  lg:py-20">
+    <div className="w-full  lg:my-32 md:my-20">
         <Head>
         <title>Home | Portfolio</title>
       </Head>
@@ -49,7 +48,7 @@ const downLoadCv = (url) => {
                 </Link>
                 
             <button onClick={() =>
-                downLoadCv(resume)}  className="btn btn-outline"
+                downLoadCv("/images/Nasir.Resume.pdf")}  className="btn btn-outline"
             >
               <BiSolidDownload className={`${isDark === "true"? "text-white":""} w-5 h-5`}/>
              Resume

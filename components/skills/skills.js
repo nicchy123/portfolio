@@ -96,6 +96,8 @@ const Skills = () => {
     <div id="about" className="container py-20">
       <h1 className="text-center text-4xl font-bold">My Skill</h1>
       <p className="text-center text-lg  text-[#858585] mt-2">As a Developer</p>
+      <p className="lg:w-2/3 mx-auto text-center my-2">I Am MERN Stack web developer specializing in building React.js WebApp. I enjoy creating things that live on the internet. I use Javascript, React.js, Next.js, Express, Node, Mongodb, Firebase and much more technology to create high-end interactive experiences and products. Recently working on some great and best projects.</p>
+      <p className="text-center text-xl font-bold">Email: nasirchy252@gmail.com</p>
       <div className="">
         <div>
           <div className="my-20 lg:w-full w-80 mx-auto">
