@@ -71,7 +71,7 @@ const Footer = () => {
          </button>
           </Link>
          <button  onClick={() =>
-                downLoadCv("http://localhost:3000/images/Nasir.Resume.pdf")
+                downLoadCv("/images/Nasir.Resume.pdf")
               } className="w-44 p-3 border rounded">Download Resume</button>
         </div>
       </footer>

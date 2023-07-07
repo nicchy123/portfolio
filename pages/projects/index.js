@@ -11,8 +11,6 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
 
-  const [isDark, setDark] = useState(false);
-
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
       .then((res) => res.json())
