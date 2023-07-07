@@ -8,23 +8,21 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 const Hero = () => {
 const [isDark, setDark] = useState(false)
-
-  const downLoadCv = (url) => {
-    const fileName = url.split("/").pop();
-    const aTag = document.createElement("a");
-    aTag.href = url;
-    aTag.setAttribute("download", fileName);
-    document.body.appendChild(aTag);
-    aTag.click();
-    aTag.remove();
-  };
+const downLoadCv = (url) => {
+  const fileName = url.split("/").pop();
+  const aTag = document.createElement("a");
+  aTag.href = url;
+  aTag.setAttribute("download", fileName);
+  document.body.appendChild(aTag);
+  aTag.click();
+  aTag.remove();
+};
   return (
     <div className="w-full  lg:py-20">
         <Head>
         <title>Home | Portfolio</title>
       </Head>
       <div className="container  flex lg:flex-row flex-col-reverse items-center gap-5 ">
-       
         <div className="lg:w-1/2">
           <p className="text-lg">HI. I' am</p>
           <h2 className="text-[#297BB2] lg:text-6xl text-3xl font-bold my-4">
@@ -49,11 +47,9 @@ const [isDark, setDark] = useState(false)
                 Contact Me
             </button>
                 </Link>
-            <button
-              onClick={() =>
-                downLoadCv(resume)
-              }
-              className="btn btn-outline"
+                
+            <button onClick={() =>
+                downLoadCv(resume)}  className="btn btn-outline"
             >
               <BiSolidDownload className={`${isDark === "true"? "text-white":""} w-5 h-5`}/>
              Resume
