@@ -3,8 +3,7 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 const CoolPage = () => {
   return (
     <div>
-      <div />
-      <ScrollToTop smooth component={<FaArrowAltCircleUp className="w-7 h-10 mx-auto text-black"/>}/>
+      <ScrollToTop className="flex justify-center items-center" smooth={true}/>
     </div>
   );
 };

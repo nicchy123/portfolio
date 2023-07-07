@@ -56,7 +56,7 @@ const Projects = () => {
   }
 
   return (
-    <div id="projects" className="py-20">
+    <div id="projects" className="py-10">
       
       <div className={`container bg-[#FFFFFF0F] py-10`}>
         <h1 className="text-center text-4xl font-bold">Projects</h1>
@@ -89,7 +89,7 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              className={` mx-auto py-10 px-6 bg-white  text-black shadow-2xl
+              className={` mx-auto py-10 px-6 bg-[#433c72]  text-white shadow-2xl
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">

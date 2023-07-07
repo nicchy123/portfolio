@@ -81,7 +81,7 @@ const Projects = () => {
             <div
               key={i}
               className={` mx-auto py-10 px-6 box-new
-                bg-white  shadow-2xl text-black
+                 shadow-2xl bg-[#433c72]  text-white
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">

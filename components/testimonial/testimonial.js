@@ -64,6 +64,7 @@ const Testimonial = () => {
   ];
   const settings = {
     infinite: true,
+    dots: true,
     focusOnSelect: true,
     speed: 500,
     slidesToShow: 3,
@@ -107,10 +108,10 @@ const Testimonial = () => {
             {clients.map((client,i) => (
               <div key={i} className="mx-auto m-4 text-[#595959]
               ">
-                <div className="m-4 w-96 h-72 bg-white p-10 rounded-md shadow-lg">
+                <div className=" w-96 h-72 bg-white p-10 rounded-md shadow-lg mx-auto">
                   <div className="flex justify-start items-center gap-4">
                     <div>
-                    <Image className="rounded-full" alt="photo" width={50} height={50} src={client.image}/>
+                    <Image className="rounded-full w-10 h-10 object-cover" alt="photo" width={30} height={30} src={client.image}/>
                       
                       </div>
                     <div>
