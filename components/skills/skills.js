@@ -68,7 +68,7 @@ const Skills = () => {
     },
     {
       title: "Express Js",
-      src: "/images/ex1.png",
+      src: "/images/images.png",
     },
     {
       title: "Mongodb",
