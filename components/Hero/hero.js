@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import {BiSolidDownload} from 'react-icons/bi'
-import { useRouter } from "next/router";
+import resume from '../../public/images/Nasir.Resume.pdf'
 import { useEffect, useState } from "react";
 import Head from "next/head";
 const Hero = () => {
@@ -51,7 +51,7 @@ const [isDark, setDark] = useState(false)
                 </Link>
             <button
               onClick={() =>
-                downLoadCv("http://localhost:3000/images/Nasir.Resume.pdf")
+                downLoadCv(resume)
               }
               className="btn btn-outline"
             >
