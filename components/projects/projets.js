@@ -2,13 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 const Projects = () => {
   const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
-  const [dark, setDark] = useState(true);
-
 
 
   useEffect(() => {
@@ -74,10 +73,9 @@ const Projects = () => {
                 style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
                 className={`py-2 px-5 ${
                   selectedCategory === category.title && "bg-[#297BB2] "
-                }  ${
-                  dark
-                    ? "bg-[#09152E]"
-                    : "bg-white hover:text-white  text-black"
+                }  
+                bg-[#09152E]
+                    text-white 
                 } rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
@@ -89,8 +87,9 @@ const Projects = () => {
           {filteredData.map((project, i) => (
             <div
               key={i}
-              className={` mx-auto py-10 px-6 bg-[#433c72]  text-white shadow-2xl
-               rounded-xl w-full`}
+              className={` mx-auto py-10 px-6 box-new
+              shadow-2xl dark:bg-blacky  dark:text-white text-black bg-white
+            rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">
                 {project.name}

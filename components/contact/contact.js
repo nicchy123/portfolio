@@ -35,6 +35,7 @@ const Contact = () => {
       
         <h1 className="text-center text-4xl font-bold">Contact Me</h1>
         <p className="text-center mt-2 text-[#858585] text-lg">Get in touch</p>
+        <p className="text-center text-xl font-bold my-2">Email: nasirchy252@gmail.com</p>
         <div className="flex lg:flex-row flex-col-reverse justify-center items-center gap-10">
           <div className="lg:flex flex-col items-center gap-6 my-10  hidden">
             <Link

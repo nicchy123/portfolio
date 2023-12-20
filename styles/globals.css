@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 
-:root {
+/* :root {
   --background-color: #FFFFFF;
   --text-color: #000000;
 }
 
 .dark-mode {
-  background: linear-gradient(180deg, #10141D -34.43%, #09152E 100%);
+  background: ;
   --text-color: #CCCCCC;
 
-}
+} */
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -20,45 +21,6 @@ body {
 
 }
 
-.main{
-  width:330px;
-  height:330px;
-  border:1px solid #CCC;
-  margin:auto;
-  border-radius:50%; 
-  position: relative;
-}
-
-.circle{
-  width:50px;
-  height:50px;
-  background:cyan;
-  border-radius:50%;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  overflow:hidden;
-  margin:auto;
-  animation: circle 6s linear infinite;
-}
-
-
-
-@keyframes circle{
-  0%{
-    transform:rotate(0deg)
-              translate(-165px)
-              rotate(0deg);
-  
-  }
-  100%{
-    transform:rotate(360deg)
-              translate(-165px)
-              rotate(-360deg);
-  }
-}
 
 @layer components{
   .container{

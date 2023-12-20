@@ -5,12 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
-
+  const theme = useSelector(state=>state.theme.value);
+  console.log(theme)
   useEffect(() => {
     fetch("https://portfolio-server-phi-murex.vercel.app/projects")
       .then((res) => res.json())
@@ -65,9 +67,10 @@ const Projects = () => {
                 style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 5px 15px 0px" }}
                 className={`py-2 px-5 ${
                   selectedCategory === category.title && "bg-[#297BB2] "
-                } bg-[#09152E]
-                  
-                rounded-md hover:bg-[#297BB2]`}
+                }  
+                bg-[#09152E]
+                    text-white 
+                } rounded-md hover:bg-[#297BB2]`}
               >
                 {category.title}
               </li>
@@ -79,7 +82,7 @@ const Projects = () => {
             <div
               key={i}
               className={` mx-auto py-10 px-6 box-new
-                 shadow-2xl bg-[#433c72]  text-white
+                 shadow-2xl dark:bg-blacky  dark:text-white text-black bg-white
                rounded-xl w-full`}
             >
               <h1 className="text-3xl font-bold text-center mt-4">

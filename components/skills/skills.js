@@ -96,14 +96,14 @@ const Skills = () => {
     <div id="about" className="container py-20">
       <h1 className="text-center text-4xl font-bold">My Skill</h1>
       <p className="text-center text-lg  text-[#858585] mt-2">As a Developer</p>
-      <p className="lg:w-2/3 mx-auto text-center my-2">I Am MERN Stack web developer specializing in building React.js WebApp. I enjoy creating things that live on the internet. I use Javascript, React.js, Next.js, Express, Node, Mongodb, Firebase and much more technology to create high-end interactive experiences and products. Recently working on some great and best projects.</p>
-      <p className="text-center text-xl font-bold">Email: nasirchy252@gmail.com</p>
+      <p className="lg:w-2/3 mx-auto text-center my-2">I am MERN stack web developer specializing in building React.js WebApp. I enjoy creating things that live on the internet. I use <span className="font-bold dark:text-white text-black">Html, Css, Javascript, React.js, Next.js, Express, Node, Mongodb, Firebase</span> and much more technology to create high-end interactive experiences and products. Recently working on some great and best projects.</p>
+     
       <div className="">
         <div>
           <div className="my-20 lg:w-full w-80 mx-auto">
             <Slider {...settings}>
-              {skills.map((skill) => (
-                <div>
+              {skills.map((skill, i) => (
+                <div key={i}>
                  
                   <div className="bg-[#297BB2] w-72 mx-auto h-[200px] rounded-xl p-5 flex flex-col justify-center items-center">
                   <Image className="bg-white w-20 h-20  p-5 rounded-full mx-auto" src={skill.src} height={200} width={200} />

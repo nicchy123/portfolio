@@ -5,8 +5,9 @@ import Typewriter from "typewriter-effect";
 import {BiSolidDownload} from 'react-icons/bi'
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { useSelector } from "react-redux";
 const Hero = () => {
-const [isDark, setDark] = useState(false)
+  const theme = useSelector((state) => state.theme.value);
 const downLoadCv = (url) => {
   const fileName = url.split("/").pop();
   const aTag = document.createElement("a");
@@ -21,8 +22,9 @@ const downLoadCv = (url) => {
         <Head>
         <title>Home | Portfolio</title>
       </Head>
-      <div className="container  flex lg:flex-row flex-col-reverse items-center gap-5 ">
-        <div className="lg:w-1/2">
+      <div className="container  ">
+      <div className={` ${theme == "dark"?" ":""}flex lg:flex-row flex-col-reverse items-center gap-5 `}>
+      <div className="lg:w-1/2">
           <p className="text-lg">HI. I' am</p>
           <h2 className="text-[#297BB2] lg:text-6xl text-3xl font-bold my-4">
             Nasir Chowdhury
@@ -50,7 +52,7 @@ const downLoadCv = (url) => {
             <button onClick={() =>
                 downLoadCv("/images/Nasir.Resume.pdf")}  className="btn btn-outline"
             >
-              <BiSolidDownload className={`${isDark === "true"? "text-white":""} w-5 h-5`}/>
+              <BiSolidDownload className={`${theme === "dark"? "text-white":""} w-5 h-5`}/>
              Resume
             </button>
           </div>
@@ -95,6 +97,7 @@ const downLoadCv = (url) => {
             ></Image>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

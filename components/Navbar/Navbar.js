@@ -1,12 +1,13 @@
+import { setTheme } from "@/redux/slices/themeslice";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const router = useRouter();
-  console.log(router);
   const [dark, setDark] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -29,10 +30,20 @@ const Navbar = () => {
       }
     }
   }, [dark]);
-  const changeTheme = (data) => {
-    setDark(data);
-    localStorage.setItem("dark-mode", data);
+  const setMediaTheme = (data) => {
+    disPatch(setTheme(data));
   };
+  const disPatch = useDispatch();
+
+  const theme = useSelector((state) => state.theme.value);
+
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  }else{
+    document.documentElement.classList.remove("dark");
+
+  }
+
   const menuItems = (
     <>
       <Link
@@ -87,16 +98,15 @@ const Navbar = () => {
   );
   return (
     <>
-   
       {!loading && (
         <div
-          className={`${
-            dark ? "bg-[#151A25]" : "bg-white"
-          } sticky top-0  z-[999] shadow-md`}
+          className={`
+            dark:bg-[#151A25] bg-white dark:text-white text-black
+           sticky top-0  z-[999] shadow-md`}
         >
-   <Head>
-<title>Home | Portfolio</title>
-   </Head>
+          <Head>
+            <title>Home | Portfolio</title>
+          </Head>
           <div className={`navbar container h-16`}>
             <div className="navbar-start  ">
               <div className="dropdown">
@@ -124,7 +134,7 @@ const Navbar = () => {
                   <ul
                     tabIndex={0}
                     className={`${
-                      dark ? "bg-[#151A25]" : "bg-white"
+                      "bg-[#151A25] text-white"
                     }  flex flex-col gap-5  menu-xl dropdown-content mt-3  z-[999] p-5 shadow  rounded-box w-52`}
                   >
                     {menuItems}
@@ -146,11 +156,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
               <button>
-                {!dark && (
+                {theme === "light" && (
                   <svg
                     onClick={() => {
-                      setDark(true);
-                      changeTheme(true);
+                      setMediaTheme("dark");
                     }}
                     className="swap-off fill-current w-8 h-8"
                     xmlns="http://www.w3.org/2000/svg"
@@ -159,11 +168,10 @@ const Navbar = () => {
                     <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
                   </svg>
                 )}{" "}
-                {dark && (
+                {theme === "dark" && (
                   <svg
-                    onClick={() => {
-                      setDark(false);
-                      changeTheme(false);
+                    onClick={() => {                  
+                      setMediaTheme("light");
                     }}
                     className="swap-on fill-current w-8 h-8 "
                     xmlns="http://www.w3.org/2000/svg"
