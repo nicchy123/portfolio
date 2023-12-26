@@ -20,13 +20,6 @@ const Testimonial = () => {
       image:'https://i.ibb.co/2g1x7xj/299990102-615870670174120-9045903469412015109-n.jpg'
     },
     {
-      name: "Nahidul Islam Chy",
-      time: "Worked 3 month ago",
-      comment:
-        "Nasir is a talented developer. His work is impressive, showcasing a strong understanding of design and proficiency in front-end. Highly recommended!",
-      image: '/images/client3.avif'
-    },
-    {
       name: "Naderul islam chy",
       time: "Worked 4 month ago",
       comment:

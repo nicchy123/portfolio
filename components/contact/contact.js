@@ -5,7 +5,9 @@ import { FaGithub } from "react-icons/fa";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
-import Head from "next/head";
+import facebook from "/public/skills-image/facebook.png";
+import insta from "/public/skills-image/Instagram_logo_2022.svg.webp";
+import linkedin from "/public/skills-image/LinkedIn_logo_initials.png";
 const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
@@ -43,7 +45,7 @@ const Contact = () => {
               href={"https://www.facebook.com/nic.nasirchy.3"}
             >
               <Image
-                src={"/images/facebook.png"}
+                src={facebook}
                 width={40}
                 height={100}
                 alt="photo"
@@ -55,7 +57,7 @@ const Contact = () => {
               href={"https://www.linkedin.com/in/nasir252/"}
             >
               <Image
-                src={"/images/linkedin.png"}
+                src={linkedin}
                 width={40}
                 height={100}
                 alt="photo"
@@ -67,7 +69,7 @@ const Contact = () => {
               href={"https://www.instagram.com/nasirchy143/"}
             >
               <Image
-                src={"/images/linkedin1.png"}
+                src={insta}
                 width={40}
                 height={100}
                 alt="photo"

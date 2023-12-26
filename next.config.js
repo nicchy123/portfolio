@@ -7,7 +7,11 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ['assets-global.website-files.com',"i.ibb.co","i.ibb.co"],
+    domains: [
+      "assets-global.website-files.com",
+      "i.ibb.co",
+      "static.wikia.nocookie.net",
+    ],
   },
-  nextConfig
-}
+  nextConfig,
+};

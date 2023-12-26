@@ -5,7 +5,9 @@ import { FaGithub } from 'react-icons/fa';
 import { MdLocationPin } from 'react-icons/md';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FiPhoneCall } from 'react-icons/fi';
-
+import facebook from "/public/skills-image/facebook.png";
+import profile from "/public/skills-image/profile-pic (2).png";
+import linkedin from "/public/skills-image/LinkedIn_logo_initials.png";
 const Footer = () => {
   const downLoadCv = (url) => {
     const fileName = url.split("/").pop();
@@ -21,7 +23,7 @@ const Footer = () => {
           <footer className="footer p-10   container">
         <div className='lg:mx-auto '>
        <div className='flex items-center gap-2'>
-       <Image className='rounded-full' src={'/images/nasir12.png'} height={50} width={50} alt='nasir'/>
+       <Image className='rounded-full' src={profile} height={50} width={50} alt='nasir'/>
           <div>
           <p className=' text-xl'> Nasirul Islam Chowdhury</p>
           <h2 className="text-[#297BB2] font-bold">Front End Developer</h2>
@@ -49,11 +51,11 @@ const Footer = () => {
           <span className="footer-title">Social</span> 
           <div className='flex flex-col items-center gap-4 '>
                    <Link className='flex items-center gap-4' href={'https://www.facebook.com/nic.nasirchy.3'}>
-                   <Image src={'/images/facebook.png'} width={30} height={100} alt='photo'/>
+                   <Image src={facebook} width={30} height={100} alt='photo'/>
                    <p>Nasir Chy</p>
                    </Link>
                    <Link className='flex items-center gap-4' href={'https://www.linkedin.com/in/nasir252/'}>
-                   <Image src={'/images/linkedin.png'} width={30} height={100} alt='photo'/>
+                   <Image src={linkedin} width={30} height={100} alt='photo'/>
                    <p>Nasir Chy</p>
                    </Link>
                

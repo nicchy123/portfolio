@@ -3,9 +3,12 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import {BiSolidDownload} from 'react-icons/bi'
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import { useSelector } from "react-redux";
+import profile from "/public/skills-image/profile-pic (2).png";
+import facebook from "/public/skills-image/facebook.png";
+import insta from "/public/skills-image/Instagram_logo_2022.svg.webp";
+import linkedin from "/public/skills-image/LinkedIn_logo_initials.png";
 const Hero = () => {
   const theme = useSelector((state) => state.theme.value);
 const downLoadCv = (url) => {
@@ -50,7 +53,7 @@ const downLoadCv = (url) => {
                 </Link>
                 
             <button onClick={() =>
-                downLoadCv("/images/Nasir.Resume.pdf")}  className="btn btn-outline"
+                downLoadCv("/public/Nasir.Frontend.Resume.pdf")}  className="btn btn-outline"
             >
               <BiSolidDownload className={`${theme === "dark"? "text-white":""} w-5 h-5`}/>
              Resume
@@ -59,7 +62,7 @@ const downLoadCv = (url) => {
           <div className="flex items-center gap-6 my-10">
             <Link href={"https://www.facebook.com/nic.nasirchy.3"}>
               <Image
-                src={"/images/facebook.png"}
+                src={facebook}
                 width={40}
                 height={100}
                 alt="photo"
@@ -67,7 +70,7 @@ const downLoadCv = (url) => {
             </Link>
             <Link href={"https://www.linkedin.com/in/nasir252/"}>
               <Image
-                src={"/images/linkedin.png"}
+                src={linkedin}
                 width={40}
                 height={100}
                 alt="photo"
@@ -75,7 +78,7 @@ const downLoadCv = (url) => {
             </Link>
             <Link href={"https://www.instagram.com/nasirchy143/"}>
               <Image
-                src={"/images/linkedin1.png"}
+                src={insta}
                 width={40}
                 height={100}
                 alt="photo"
@@ -87,13 +90,13 @@ const downLoadCv = (url) => {
           </div>
         </div>
         <div className="w-1/2">
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center w-full">
             <Image
-              className="rounded-full mx-auto "
+              className="rounded-full mx-auto lg:w-2/3 mt-2"
               alt="photo"
-              width={350}
+              width={450}
               height={300}
-              src="/images/nasir12.png"
+              src={profile}
             ></Image>
           </div>
         </div>
