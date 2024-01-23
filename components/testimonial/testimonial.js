@@ -35,6 +35,7 @@ const Testimonial = () => {
     },
  
   ];
+  
   const settings = {
     infinite: true,
     dots: true,
@@ -56,7 +57,7 @@ const Testimonial = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 2,
           initialSlide: 2
         }
@@ -79,20 +80,22 @@ const Testimonial = () => {
         <div className="mx-auto px-4 mt-8">
           <Slider {...settings}>
             {clients.map((client,i) => (
-              <div key={i} className="mx-auto m-4 text-[#595959]
+              <div key={i} className="mx-auto  text-[#595959]
               ">
-                <div className=" w-96 h-72 bg-white p-10 rounded-md shadow-lg mx-auto">
-                  <div className="flex justify-start items-center gap-4">
-                    <div>
+                <div className="min-h-[300px]  bg-white p-10 rounded-md shadow-lg mx-auto">
+                  <div >
+                   <div className="flex justify-start items-center gap-4">
+                   <div>
                     <Image className="rounded-full w-10 h-10 object-cover" alt="photo" width={30} height={30} src={client.image}/>
                       
                       </div>
                     <div>
                       <p className="text-black">{client.name}</p>
-                      <p>{client.time}</p>
+                      <p className="text-sm">{client.time}</p>
                     </div>
+                   </div>
+                  <p className="bg-white  rounded-md mt-4">{client.comment}</p>
                   </div>
-                  <p className="bg-white p-5 rounded-md">{client.comment}</p>
                 </div>
               </div>
             ))}

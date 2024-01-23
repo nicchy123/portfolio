@@ -9,14 +9,13 @@ import facebook from "/public/skills-image/facebook.png";
 import profile from "/public/skills-image/profile-pic (2).png";
 import linkedin from "/public/skills-image/LinkedIn_logo_initials.png";
 const Footer = () => {
-  const downLoadCv = (url) => {
-    const fileName = url.split("/").pop();
-    const aTag = document.createElement("a");
-    aTag.href = url;
-    aTag.setAttribute("download", fileName);
-    document.body.appendChild(aTag);
-    aTag.click();
-    aTag.remove();
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/skills-image/Nasir_Resume.pdf"; // Replace with the actual path to your PDF resume
+    link.download = "Nasir_Developer_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
     return (
   <div className='bg-[#0D051F] text-white w-full'>
@@ -73,7 +72,7 @@ const Footer = () => {
          </button>
           </Link>
          <button  onClick={() =>
-                downLoadCv("/images/Nasir.Resume.pdf")
+                downloadResume()
               } className="w-44 p-3 border rounded">Download Resume</button>
         </div>
       </footer>

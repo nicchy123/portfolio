@@ -31,8 +31,8 @@ const Skills = () => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: 2,
+            slidesToScroll: 1,
             infinite: true,
             dots: true
           }
@@ -131,11 +131,10 @@ const Skills = () => {
 
       <div className="">
         <div>
-          <div className="my-20 lg:w-full w-80 mx-auto">
+          <div className="my-20 md:w-full w-80 mx-auto">
             <Slider {...settings}>
               {skills.map((skill, i) => (
-                <div key={i}>
-                  <div className="bg-[#297BB2] w-72 mx-auto h-[200px] rounded-xl p-5 flex flex-col justify-center items-center">
+                  <div key={i} className="bg-[#297BB2]  w-72 mx-auto h-[200px] rounded-xl p-5 flex flex-col justify-center items-center">
                     <Image
                       className="bg-white w-20 h-20  p-5 rounded-full mx-auto object-cover"
                       src={skill.src}
@@ -145,7 +144,6 @@ const Skills = () => {
                     <h3 className="text-center text-2xl text-white font-bold mt-6">
                       {skill.title}
                     </h3>
-                  </div>
                 </div>
               ))}
             </Slider>

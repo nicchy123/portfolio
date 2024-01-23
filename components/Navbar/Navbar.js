@@ -47,7 +47,7 @@ const Navbar = () => {
   const menuItems = (
     <>
       <Link
-        className={` mx-4 hover:border-b-2 border-[#6597FF] text-center  ${
+        className={` mx-4 hover:border-b-2  border-[#6597FF] text-center  ${
           router.asPath === "/" ? "border-b-2  border-[#6597FF]" : ""
         }`}
         href={"/"}
@@ -56,7 +56,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        className={` mx-4 hover:border-b-2 border-[#6597FF] text-center  ${
+        className={` mx-4 hover:border-b-2 border-[#6597FF]  text-center  ${
           router.asPath === "/#about" ? "border-b-2 border-[#6597FF]" : ""
         }`}
         onClick={() => setOpen(false)}
